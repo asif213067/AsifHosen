@@ -69,6 +69,14 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  /* Alternating section backgrounds, managed centrally: even positions use
+     Background B (the section gradient), odd positions keep Background A.
+     Adding, removing, or reordering <section>s in page.tsx re-flows automatically,
+     so no section should set its own background explicitly. Navbar and Footer
+     live outside <main> and are unaffected. */
+  main > section:nth-child(even) {
+    background-image: var(--section-gradient);
+  }
 }
 
 @layer utilities {

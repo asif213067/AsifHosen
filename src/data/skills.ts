@@ -9,11 +9,18 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: "HTML", category: "Languages" },
-  { name: "CSS", category: "Languages" },
-  { name: "JavaScript", category: "Languages" },
-  { name: "TypeScript", category: "Languages" },
-  { name: "Python", category: "Languages" },
+  { name: "JavaScript", category: "Languages", logo: "" },
+  { name: "TypeScript", category: "Languages", logo: "" },
+  { name: "Python", category: "Languages", logo: "/images/skills/python.png" },
+  { name: "C", category: "Languages", logo: "/images/skills/c.png" },
+  {
+    name: "C++",
+    category: "Languages",
+    logo: "/images/skills/c-plus-plus.png",
+  },
+  { name: "SQL", category: "Languages", logo: "" },
+  { name: "HTML", category: "Languages", logo: "" },
+  { name: "CSS", category: "Languages", logo: "" },
 
   { name: "React", category: "Frontend" },
   { name: "Next.js", category: "Frontend" },
@@ -23,11 +30,12 @@ export const skills: Skill[] = [
 
   { name: "Node.js", category: "Backend" },
   { name: "Express", category: "Backend" },
+  { name: "RESTAPI", category: "Backend" },
   { name: "FastAPI", category: "Backend" },
   { name: "JWT Auth", category: "Backend" },
 
   { name: "MongoDB", category: "Databases" },
-  { name: "PostgreSQL", category: "Databases" },
+  { name: "MySQL", category: "Databases" },
 
   { name: "Git", category: "Tools" },
   { name: "GitHub", category: "Tools" },

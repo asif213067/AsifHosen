@@ -1,22 +1,43 @@
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { Experience } from "@/components/sections/experience";
+import { Skills } from "@/components/sections/skills";
+import { Projects } from "@/components/sections/projects";
+
+// const placeholders = [
+//   "experience",
+//   "skills",
+//   "projects",
+//   "education",
+//   "publications",
+//   "contact",
+// ];
 
 export default function Home() {
   return (
-    <main>
-      <section className="mx-auto flex max-w-5xl items-center justify-between px-6 py-16">
-        <h1 className="text-gradient text-5xl font-bold">Asif</h1>
-        <ThemeToggle />
-      </section>
-
-      <section className="bg-section-gradient px-6 py-16">
-        <div className="mx-auto max-w-5xl rounded-xl border bg-card p-6 text-card-foreground">
-          <h2 className="text-xl font-semibold">Experience</h2>
-          <p className="text-muted-foreground">Theme token test card</p>
-          <span className="bg-brand-gradient mt-4 inline-block rounded-full px-5 py-2 text-sm font-semibold text-primary-foreground">
-            Download resume
-          </span>
-        </div>
-      </section>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        {/* {placeholders.map((id) => (
+          <section
+            key={id}
+            id={id}
+            className="flex min-h-[70vh] items-center justify-center border-t"
+          >
+            <h2 className="text-gradient text-4xl font-bold capitalize">
+              {id}
+            </h2>
+          </section>
+        ))} */}
+      </main>
+      <Footer />
+    </>
   );
 }
