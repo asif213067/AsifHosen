@@ -2,19 +2,27 @@ import type { EducationItem } from "@/types/portfolio";
 
 export const education: EducationItem[] = [
   {
-    id: "web-development-programming",
-    degree: "Web Development and Programming",
-    institution: "GGI",
+    id: "computer-science-engineering",
+    degree: "Computer Science & Engineering",
+    institution: "I.K. Gujral Punjab Technical University",
     startYear: 2021,
     endYear: 2025,
     description:
-      "A full-stack program focused on hands-on projects across frontend, backend, and databases. It built my habit of learning by shipping real applications.",
+      "Completed a four-year Computer Science & Engineering program focused on software development, algorithms, databases, artificial intelligence and computer systems. Built a strong foundation in programming, problem-solving, and software engineering principles, with an emphasis on applying theoretical knowledge to practical projects.",
     coursework: [
       "Data Structures & Algorithms",
-      "Database Management",
-      "Web APIs",
-      "React & Next.js",
-      "Node.js",
+      "Object-Oriented Programming",
+      "Database Management Systems",
+      "Operating Systems",
+      "Computer Networks",
+      "Software Engineering",
+      "Web Technologies",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Cloud Computing",
+      "Computer Organization & Architecture",
+      "Discrete Mathematics",
+      "Enterprise Resource Planning (ERP)",
     ],
   },
 ];

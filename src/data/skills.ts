@@ -41,6 +41,7 @@ export const skills: Skill[] = [
   { name: "GitHub", category: "Tools" },
   { name: "Vercel", category: "Tools" },
   { name: "Figma", category: "Tools" },
+  { name: "VS Code", category: "Tools" },
 ];
 
 export function getSkillsByCategory(category: SkillCategory): Skill[] {
