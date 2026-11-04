@@ -5,15 +5,11 @@ import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
+import { DsaOverview } from "@/components/sections/dsa-overview";
+import { Education } from "@/components/sections/education";
+import { Certifications } from "@/components/sections/certifications";
+import { Publications } from "@/components/sections/publications";
 
-// const placeholders = [
-//   "experience",
-//   "skills",
-//   "projects",
-//   "education",
-//   "publications",
-//   "contact",
-// ];
 
 export default function Home() {
   return (
@@ -25,17 +21,10 @@ export default function Home() {
         <Experience />
         <Skills />
         <Projects />
-        {/* {placeholders.map((id) => (
-          <section
-            key={id}
-            id={id}
-            className="flex min-h-[70vh] items-center justify-center border-t"
-          >
-            <h2 className="text-gradient text-4xl font-bold capitalize">
-              {id}
-            </h2>
-          </section>
-        ))} */}
+        <DsaOverview />
+        <Education />
+        <Certifications />
+        <Publications />
       </main>
       <Footer />
     </>
