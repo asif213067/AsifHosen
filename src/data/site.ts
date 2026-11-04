@@ -10,8 +10,9 @@ export interface SiteLink {
 export const siteLinks: SiteLink[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Publications", href: "#publications" },
+  { label: "Education", href: "#education" },
+  // { label: "Publications", href: "#publications" },
 ];

@@ -6,10 +6,10 @@ import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
 import { Contact } from "@/components/sections/contact";
 import { Projects } from "@/components/sections/projects";
-import { DsaOverview } from "@/components/sections/dsa-overview";
+// import { DsaOverview } from "@/components/sections/dsa-overview";
 import { Education } from "@/components/sections/education";
-import { Certifications } from "@/components/sections/certifications";
-import { Publications } from "@/components/sections/publications";
+// import { Certifications } from "@/components/sections/certifications";
+// import { Publications } from "@/components/sections/publications";
 
 
 export default function Home() {
@@ -22,10 +22,10 @@ export default function Home() {
         <Experience />
         <Skills />
         <Projects />
-        <DsaOverview />
+        {/* <DsaOverview /> */}
         <Education />
-        <Certifications />
-        <Publications />
+        {/* <Certifications /> */}
+        {/* <Publications /> */}
         <Contact />
       </main>
       <Footer />
