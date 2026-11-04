@@ -20,7 +20,7 @@ export function PublicationCard({ publication }: PublicationCardProps) {
   return (
     <article className="grid gap-6 rounded-2xl border border-l-4 border-l-primary bg-card p-6 text-card-foreground shadow-sm sm:grid-cols-[200px_1fr]">
       <div className="mx-auto w-full max-w-50 sm:mx-0">
-        <div className="relative aspect-[3/4] overflow-hidden rounded-xl border bg-muted">
+        <div className="relative aspect-3/4 overflow-hidden rounded-xl border bg-muted">
           {publication.image && !coverFailed ? (
             <Image
               src={publication.image}

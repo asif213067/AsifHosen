@@ -13,7 +13,7 @@ export function CertificateImage({ src, title }: CertificateImageProps) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="relative aspect-[16/10] border-b bg-muted">
+    <div className="relative aspect-16/10 border-b bg-muted">
       {src && !failed ? (
         <Image
           src={src}

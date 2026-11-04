@@ -2,12 +2,14 @@ import type { Profile } from "@/types/portfolio";
 
 export const profile: Profile = {
   name: "Asif Hosen",
+  role: "Software Developer",
   roles: [
     "Full-Stack Developer",
     "Next.js Developer",
     "Problem Solver",
     "Always Learning",
   ],
+  bio: "I build fast, clean web apps and write about the research behind them.",
   intro:
     "I build modern, scalable web applications with a passion for clean code, thoughtful design, and solving real-world problems through technology.",
   photo: {
@@ -22,6 +24,7 @@ export const profile: Profile = {
   resumeUrl: "/resume/Asif_Hosen_CV.pdf",
   email: "asifhosen1050@gmail.com",
   location: "Bangladesh",
+  availability: "Available for work",
   socials: [
     { label: "GitHub", href: "https://github.com/asif213067" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/asif-hosen" },

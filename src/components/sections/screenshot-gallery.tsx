@@ -27,13 +27,13 @@ function Slide({ src, index, title, single }: SlideProps) {
   return (
     <div
       className={cn(
-        "relative aspect-[16/10] snap-center overflow-hidden rounded-xl border bg-primary/10",
+        "relative aspect-16/10 snap-center overflow-hidden rounded-xl border bg-primary/10",
         single ? "flex-[0_0_100%]" : "flex-[0_0_88%]",
       )}
     >
       {failed ? (
         <div className="flex h-full flex-col">
-          <span className="block h-[22px] bg-border" />
+          <span className="block h-5.5 bg-border" />
           <span className="flex flex-1 items-center justify-center text-sm font-medium text-muted-foreground">
             Screenshot {index}
           </span>
@@ -74,7 +74,7 @@ export function ScreenshotGallery({ title, images }: ScreenshotGalleryProps) {
           role="region"
           tabIndex={0}
           aria-label={`${title} screenshots`}
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-xl scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
           {images.map((src, i) => (
             <Slide
@@ -95,7 +95,7 @@ export function ScreenshotGallery({ title, images }: ScreenshotGalleryProps) {
               onClick={() => scrollByDirection(-1)}
               className={`${arrowClass} left-2`}
             >
-              <ChevronLeft className="size-[18px]" />
+              <ChevronLeft className="size-4.5" />
             </button>
             <button
               type="button"
@@ -103,7 +103,7 @@ export function ScreenshotGallery({ title, images }: ScreenshotGalleryProps) {
               onClick={() => scrollByDirection(1)}
               className={`${arrowClass} right-2`}
             >
-              <ChevronRight className="size-[18px]" />
+              <ChevronRight className="size-4.5" />
             </button>
           </>
         )}

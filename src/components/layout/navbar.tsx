@@ -4,16 +4,8 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { siteLinks } from "@/data/site";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "/Experience", href: "#experience" },
-  { label: "/Skills", href: "#skills" },
-  { label: "/Projects", href: "#projects" },
-  { label: "/Education", href: "#education" },
-  { label: "/Publications", href: "#publications" },
-];
 
 const linkClass =
   "text-sm font-medium text-muted-foreground transition-colors hover:text-primary";
@@ -32,7 +24,7 @@ export function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
+          {siteLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className={linkClass}>
                 {link.label}
@@ -71,7 +63,7 @@ export function Navbar() {
           id="mobile-menu"
           className="flex flex-col gap-4 border-t bg-background px-6 py-5 md:hidden"
         >
-          {navLinks.map((link) => (
+          {siteLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}

@@ -123,7 +123,9 @@ export interface SocialLink {
 
 export interface Profile {
   name: string;
+  role: string;
   roles: string[];
+  bio: string;
   intro: string;
   about: string[];
   photo: {
@@ -133,6 +135,9 @@ export interface Profile {
   resumeUrl: string;
   email: string;
   location: string;
+  availability: string;
+  /** Optional path to a logo under /public, e.g. "/images/logo.png". */
+  logo?: string;
   socials: SocialLink[];
 }
 
@@ -196,7 +201,9 @@ export interface SocialLink {
 
 export interface Profile {
   name: string;
+  role: string;
   roles: string[];
+  bio: string;
   intro: string;
   about: string[];
   photo: {
@@ -206,5 +213,8 @@ export interface Profile {
   resumeUrl: string;
   email: string;
   location: string;
+  availability: string;
+  /** Optional path to a logo under /public, e.g. "/images/logo.png". */
+  logo?: string;
   socials: SocialLink[];
 }
