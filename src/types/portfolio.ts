@@ -25,13 +25,6 @@ export interface ExperienceItem {
   technologies: string[];
 }
 
-export type SkillCategory =
-  | "Languages"
-  | "Frontend"
-  | "Backend"
-  | "Databases"
-  | "Tools";
-
 export interface Skill {
   name: string;
   category: SkillCategory;
