@@ -15,9 +15,9 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     screenshots: [
-      "/images/projects/togetherwe1.png",
-      "/images/projects/togetherwe2.png",
-      "/images/projects/togetherwe3.png",
+      "/images/projects/togetherwe-1.png",
+      "/images/projects/togetherwe-2.png",
+      "/images/projects/togetherwe-3.png",
     ],
     description: [
       "TogetherWe connects volunteers with local social development events. People can browse upcoming events, create their own, and join with one click.",
@@ -42,9 +42,9 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "REST API"],
 
     screenshots: [
-      "/images/projects/bazardor1.png",
-      "/images/projects/bazardor2.png",
-      "/images/projects/bazardor3.png",
+      "/images/projects/bazardor-1.png",
+      "/images/projects/bazardor-2.png",
+      "/images/projects/bazardor-3.png",
     ],
 
     description: [
@@ -89,9 +89,9 @@ export const projects: Project[] = [
       "FitLog is designed as a simple workout companion where users can discover exercises and organize their workouts in one place.",
     technologies: ["Next.js", "TypeScript", "REST API", "Tailwind CSS"],
     screenshots: [
-      "/images/projects/fitlog1.png",
-      "/images/projects/fitlog2.png",
-      "/images/projects/fitlog3.png",
+      "/images/projects/fitlog-1.png",
+      "/images/projects/fitlog-2.png",
+      "/images/projects/fitlog-3.png",
     ],
     description: [
       "FitLog is a modern workout library and workout-planning web application built with Next.js. It allows users to explore workouts, view detailed exercise information, build a daily workout plan, save exercises for later, and track basic workout statistics.",
