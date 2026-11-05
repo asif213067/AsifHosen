@@ -101,7 +101,7 @@ git clone https://github.com/asif213067/AsifHosen
 Navigate to the project directory:
 
 ```bash
-cd portfolio
+cd asif-hosen
 ```
 
 ### 2. Install Dependencies
