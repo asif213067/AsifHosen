@@ -22,7 +22,7 @@ export const profile: Profile = {
 
     "I’m a dedicated and curious learner who believes in continuous improvement and learning something new every day. I enjoy exploring new technologies, solving challenging problems, and collaborating with others as a team player. My goal is to grow as a software developer, contribute to meaningful projects, and build impactful digital experiences.",
   ],
-  resumeUrl: "/resume/Asif_Hosen_CV.pdf",
+  resumeUrl: "/resume/Asif_Hosen_CV_Updated.pdf",
   email: "asifhosen1050@gmail.com",
   location: "Bangladesh",
   availability: "Available for work",
