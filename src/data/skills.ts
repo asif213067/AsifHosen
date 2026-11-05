@@ -26,12 +26,12 @@ export const skills: Skill[] = [
     category: "Languages",
     logo: "/images/skills/cpp.png",
   },
-  { name: "SQL", category: "Languages", logo: "/images/skills/sql.jfif" },
+  { name: "SQL", category: "Languages", logo: "/images/skills/sql.jpg" },
   { name: "HTML", category: "Languages", logo: "/images/skills/html.png" },
   { name: "CSS", category: "Languages", logo: "/images/skills/css.png" },
 
   { name: "React", category: "Frontend", logo: "/images/skills/react.png" },
-  { name: "Next.js", category: "Frontend", logo: "/images/skills/next.jfif" },
+  { name: "Next.js", category: "Frontend", logo: "/images/skills/next.png" },
   {
     name: "Tailwind CSS",
     category: "Frontend",
@@ -40,7 +40,7 @@ export const skills: Skill[] = [
   {
     name: "shadcn/ui",
     category: "Frontend",
-    logo: "/images/skills/shadcn.jfif",
+    logo: "/images/skills/shadcn.png",
   },
   {
     name: "Framer Motion",
@@ -60,7 +60,7 @@ export const skills: Skill[] = [
     logo: "/images/skills/rest-api.png",
   },
   { name: "FastAPI", category: "Backend", logo: "/images/skills/fast-api.png" },
-  { name: "JWT Auth", category: "Backend", logo: "/images/skills/jwt.jfif" },
+  { name: "JWT Auth", category: "Backend", logo: "/images/skills/jwt.png" },
 
   {
     name: "MongoDB",
