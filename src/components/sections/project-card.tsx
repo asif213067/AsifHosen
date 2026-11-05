@@ -30,11 +30,11 @@ export function ProjectCard({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
-          className="flex w-full items-start gap-4 text-left"
+          className="flex w-full items-start gap-4 text-left max-sm:flex-wrap"
         >
           <LogoBadge name={project.title} logo={project.logo} />
 
-          <span className="min-w-0 flex-1">
+          <span className="min-w-0 flex-1 max-sm:order-last max-sm:basis-full">
             <span className="block text-xl font-semibold">{project.title}</span>
             <span className="block font-medium text-primary">
               {project.kind}
@@ -52,14 +52,14 @@ export function ProjectCard({
           <ChevronDown
             aria-hidden="true"
             className={cn(
-              "mt-1 size-5 shrink-0 text-primary transition-transform duration-300 motion-reduce:transition-none",
+              "mt-1 size-5 shrink-0 text-primary transition-transform duration-300 motion-reduce:transition-none max-sm:ml-auto",
               open && "rotate-180",
             )}
           />
         </button>
 
         {(project.liveUrl || project.githubUrl) && (
-          <div className="mt-4 flex flex-wrap gap-3 pl-16">
+          <div className="mt-4 flex flex-wrap gap-3 sm:pl-16">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

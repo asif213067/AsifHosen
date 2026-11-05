@@ -109,12 +109,12 @@ export function ScreenshotGallery({ title, images }: ScreenshotGalleryProps) {
         )}
       </div>
 
-      {hasMany && (
+      {/* {hasMany && (
         <p className="mt-2 text-xs text-muted-foreground">
           Scroll sideways or use the arrows to see all {images.length}{" "}
           screenshots.
         </p>
-      )}
+      )} */}
     </div>
   );
 }

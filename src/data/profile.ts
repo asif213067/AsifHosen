@@ -12,6 +12,7 @@ export const profile: Profile = {
   bio: "I build fast, clean web apps and write about the research behind them.",
   intro:
     "I build modern, scalable web applications with a passion for clean code, thoughtful design, and solving real-world problems through technology.",
+  logo: "/images/logo.png",
   photo: {
     src: "/images/profile1.jpg",
     alt: "Portrait of Asif Hosen",

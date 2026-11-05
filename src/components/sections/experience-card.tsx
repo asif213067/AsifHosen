@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
+import { TechTag } from "@/components/tech-tag";
 import { formatMonth } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { ExperienceItem } from "@/types/portfolio";
@@ -19,9 +20,7 @@ export function ExperienceCard({
   const [open, setOpen] = useState(defaultOpen);
   const panelId = `${item.id}-panel`;
   const period = `${formatMonth(item.startDate)} – ${
-    !item.endDate || item.endDate === "Present"
-      ? "Present"
-      : formatMonth(item.endDate)
+    item.endDate ? formatMonth(item.endDate) : "Present"
   }`;
 
   return (
@@ -31,7 +30,7 @@ export function ExperienceCard({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen(!open)}
-        className="flex w-full items-start gap-4 p-6 text-left"
+        className="flex w-full items-start gap-4 p-6 text-left max-sm:flex-wrap"
       >
         {/* <span
           aria-hidden="true"
@@ -57,7 +56,7 @@ export function ExperienceCard({
           </span>
         )}
 
-        <span className="flex-1">
+        <span className="flex-1 max-sm:order-last max-sm:basis-full">
           <span className="block text-xl font-semibold">{item.role}</span>
           <span className="block font-medium text-primary">{item.company}</span>
           <span className="block font-mono text-sm text-muted-foreground">
@@ -65,12 +64,7 @@ export function ExperienceCard({
           </span>
           <span className="mt-3 flex flex-wrap gap-2">
             {item.technologies.map((technology) => (
-              <span
-                key={technology}
-                className="rounded-md border bg-primary/10 px-2.5 py-0.5 font-mono text-xs text-primary"
-              >
-                {technology}
-              </span>
+              <TechTag key={technology} label={technology} />
             ))}
           </span>
         </span>
@@ -78,7 +72,7 @@ export function ExperienceCard({
         <ChevronDown
           aria-hidden="true"
           className={cn(
-            "mt-1 size-5 shrink-0 text-primary transition-transform duration-300 motion-reduce:transition-none",
+            "mt-1 size-5 shrink-0 text-primary transition-transform duration-300 motion-reduce:transition-none max-sm:ml-auto",
             open && "rotate-180",
           )}
         />
@@ -100,6 +94,29 @@ export function ExperienceCard({
                 <li key={highlight}>{highlight}</li>
               ))}
             </ul>
+            {item.projects && item.projects.length > 0 && (
+              <div className="mt-6">
+                <h3 className="font-semibold text-foreground">Key projects</h3>
+                <div className="mt-3 grid gap-3">
+                  {item.projects.map((project) => (
+                    <div
+                      key={project.name}
+                      className="rounded-xl border bg-background/60 p-4"
+                    >
+                      <p className="font-medium text-foreground">
+                        {project.name}
+                      </p>
+                      <p className="mt-1 text-sm">{project.description}</p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {project.technologies.map((technology) => (
+                          <TechTag key={technology} label={technology} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             {item.companyUrl && (
               <a
                 href={item.companyUrl}

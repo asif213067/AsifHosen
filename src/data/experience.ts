@@ -6,7 +6,7 @@ export const experience: ExperienceItem[] = [
     role: "Frontend Developer",
     company: "Xzoona",
     companyUrl: "https://www.linkedin.com/company/xzoona/home/",
-    companyLogo: "/images/companies/xzoonz-logo.jfif",
+    companyLogo: "/images/companies/xzoonz.jfif",
     startDate: "2025-01",
     endDate: "2025-06",
     summary:
@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
     role: "Web Development Intern",
     company: "Info Bharat Interns",
     companyUrl: "https://www.infobharatinterns.online/",
-    companyLogo: "/images/companies/info-bharat-interns-logo.jfif",
+    companyLogo: "/images/companies/ibi.jfif",
     startDate: "2024-01",
     endDate: "2024-03",
     summary:
@@ -54,7 +54,7 @@ export const experience: ExperienceItem[] = [
     id: "freelance-web-developer",
     role: "Freelance Web Developer",
     company: "Self-employed",
-    companyLogo: "/images/companies/self-logo.png",
+    companyLogo: "/images/companies/self.png",
     startDate: "2025-10",
     endDate: "Present",
     summary:

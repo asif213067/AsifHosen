@@ -23,7 +23,7 @@ export function Education() {
                   <GraduationCap className="size-6" />
                 </span>
 
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 flex-1 max-sm:order-last max-sm:basis-full">
                   <h3 className="text-xl font-semibold">{item.degree}</h3>
                   <p className="font-medium text-primary">
                     {item.institutionUrl ? (
@@ -42,7 +42,7 @@ export function Education() {
                   </p>
                 </div>
 
-                <span className="bg-brand-gradient rounded-full px-4 py-1 font-mono text-xs font-medium text-primary-foreground">
+                <span className="bg-brand-gradient rounded-full px-4 py-1 font-mono text-xs font-medium text-primary-foreground max-sm:ml-auto">
                   {item.startYear} – {item.endYear ?? "Present"}
                 </span>
               </div>
