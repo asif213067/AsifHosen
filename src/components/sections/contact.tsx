@@ -11,42 +11,76 @@ import { Textarea } from "@/components/ui/textarea";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 
-type Status = { type: "success" | "error"; message: string } | null;
-
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const initialFormState = { name: "", email: "", message: "" };
 
+// Needs text before "@", a domain with at least one dot, and a 2+ letter ending.
+// "work@gmail" and "work@gmail." fail, "work@gmail.com" passes.
+const EMAIL_PATTERN =
+  /^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
+
+// Text for the browser's own pop-up bubble on the field. Empty string = field is fine.
+function getFieldError(name: string, value: string): string {
+  const trimmed = value.trim();
+  if (name === "name" && !trimmed) return "Please enter your name.";
+  if (name === "email") {
+    if (!trimmed) return "Please enter your email address.";
+    if (!EMAIL_PATTERN.test(trimmed)) {
+      return "Please enter a valid email address, like name@gmail.com.";
+    }
+  }
+  if (name === "message" && !trimmed) return "Please write your message.";
+  return "";
+}
+
 export function Contact() {
   const [values, setValues] = useState(initialFormState);
   const [honeypot, setHoneypot] = useState("");
   const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState<Status>(null);
+  // Shown under the form only when the form itself is broken or sending failed.
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     if (name === "company") return; // honeypot, not stored in form values
+    // Flags the field as invalid, so the browser blocks submit and shows the bubble.
+    event.target.setCustomValidity(getFieldError(name, value));
     setValues((previous) => ({ ...previous, [name]: value }));
   };
 
-  const showSuccess = (message: string) => {
-    setStatus({ type: "success", message });
-    toast.success(message);
-    setValues(initialFormState);
+  // Runs when the browser finds a field invalid on submit (for example an untouched,
+  // empty field). Replaces the default "Please fill out this field" with our text.
+  const handleInvalid = (
+    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const field = event.currentTarget;
+    field.setCustomValidity(getFieldError(field.name, field.value));
   };
 
-  const showError = (message: string, description?: string) => {
-    setStatus({ type: "error", message: message });
-    toast.error(message, { description });
+  const showSuccess = (message: string) => {
+    toast.success(message);
+    setValues(initialFormState);
+    setFormError(null);
+  };
+
+  const showFailure = (
+    toastMessage: string,
+    inlineMessage: string,
+    description?: string,
+  ) => {
+    toast.error(toastMessage, { description });
+    setFormError(inlineMessage);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (sending) return;
+    setFormError(null);
 
     // Honeypot: a filled hidden field means a bot submitted; fake success silently.
     if (honeypot.trim()) {
@@ -62,9 +96,10 @@ export function Contact() {
       ]
         .filter(Boolean)
         .join(", ");
-      showError(
+      showFailure(
         "EmailJS is not configured yet. Please contact me directly by email.",
-        `Missing environment variables: ${missing}`,
+        "This contact form isn’t working right now. Please email me directly at",
+        // `Missing environment variab,les: ${missing}`,
       );
       return;
     }
@@ -75,17 +110,18 @@ export function Contact() {
         serviceId,
         templateId,
         {
-          from_name: values.name,
-          from_email: values.email,
-          message: values.message,
+          from_name: values.name.trim(),
+          from_email: values.email.trim(),
+          message: values.message.trim(),
         },
         publicKey,
       );
       showSuccess("Message sent! I'll get back to you as soon as I can.");
     } catch {
       // Values are preserved on failure so nothing is lost.
-      showError(
+      showFailure(
         "Something went wrong while sending. Please try again in a moment.",
+        "Your message could not be sent. Please try again, or email me directly at",
       );
     } finally {
       setSending(false);
@@ -158,6 +194,7 @@ export function Contact() {
                   placeholder="John Doe"
                   value={values.name}
                   onChange={handleChange}
+                  onInvalid={handleInvalid}
                   disabled={sending}
                   className="h-11 rounded-xl bg-muted px-4"
                 />
@@ -174,6 +211,7 @@ export function Contact() {
                   placeholder="john@example.com"
                   value={values.email}
                   onChange={handleChange}
+                  onInvalid={handleInvalid}
                   disabled={sending}
                   className="h-11 rounded-xl bg-muted px-4"
                 />
@@ -188,6 +226,7 @@ export function Contact() {
                   placeholder="Hello Asif, I’d like to talk about…"
                   value={values.message}
                   onChange={handleChange}
+                  onInvalid={handleInvalid}
                   disabled={sending}
                   className="min-h-36 rounded-xl bg-muted px-4 py-3"
                 />
@@ -197,7 +236,6 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={sending}
-                  aria-describedby="contact-status"
                   className={cn(
                     buttonVariants({ size: "lg" }),
                     "rounded-full bg-brand-gradient px-6 text-primary-foreground hover:bg-brand-gradient hover:opacity-90",
@@ -205,21 +243,21 @@ export function Contact() {
                 >
                   {sending ? "Sending…" : "Send message"}
                 </button>
-                <p
-                  id="contact-status"
-                  role="status"
-                  aria-live="polite"
-                  className={cn(
-                    "mt-3 text-sm font-medium",
-                    status === null
-                      ? "sr-only"
-                      : status.type === "error"
-                        ? "text-red-600 dark:text-red-400"
-                        : "text-primary",
-                  )}
-                >
-                  {status?.message ?? "No messages sent yet."}
-                </p>
+
+                {formError && (
+                  <p
+                    role="alert"
+                    className="mt-3 text-sm font-medium text-red-600 dark:text-red-400"
+                  >
+                    {formError}{" "}
+                    <a
+                      href={`mailto:${profile.email}`}
+                      className="break-all underline underline-offset-2"
+                    >
+                      {profile.email}
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
           </form>
