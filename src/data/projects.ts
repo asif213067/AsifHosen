@@ -2,6 +2,40 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
+    id: "pizzahub",
+    title: "PizzaHub",
+    kind: "Pizza ordering and delivery platform",
+    short:
+      "Browse local pizza shops, order with a delivery date, and manage everything from role-based dashboards.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Express",
+      "MongoDB",
+      "Better Auth",
+      "Stripe",
+      "Tailwind CSS",
+      "Motion",
+    ],
+    screenshots: [
+      "/images/projects/pizzahub-1.png",
+      "/images/projects/pizzahub-2.png",
+      "/images/projects/pizzahub-3.png",
+    ],
+    description: [
+      "PizzaHub connects hungry customers with local pizza shops. Customers can search and filter the menu, place orders with a delivery date and address, and track each order. Vendors publish menu items and accept or reject incoming orders, and admins review items and manage users.",
+      "The Next.js client uses Better Auth for sign-in, including Google. It talks to an Express and MongoDB server that verifies a JWT and the user's role on every private request. Vendors upgrade to Premium through Stripe Checkout, and Premium turns on only after a verified Stripe webhook.",
+    ],
+    highlights: [
+      "Search, filter, and sort menu items by name, category, location, and price",
+      "Separate dashboards for customers, vendors, and admins, with server-side role checks",
+      "Order flow with delivery date, address, and accept, reject, or cancel statuses",
+      "Vendor Premium subscriptions with Stripe Checkout and webhooks",
+    ],
+    liveUrl: "https://pizzahub-by-asif.vercel.app",
+    githubUrl: "https://github.com/asif213067/Pizzahub-Client",
+  },
+  {
     id: "togetherwe",
     title: "TogetherWe",
     kind: "Community events platform",
