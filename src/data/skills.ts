@@ -5,6 +5,7 @@ export const skillCategories: SkillCategory[] = [
   "Frontend",
   "Backend",
   "Databases",
+  "Payment",
   "Tools",
 ];
 
@@ -72,8 +73,13 @@ export const skills: Skill[] = [
   { name: "Git", category: "Tools", logo: "/images/skills/git.png" },
   { name: "GitHub", category: "Tools", logo: "/images/skills/github.png" },
   { name: "Vercel", category: "Tools", logo: "/images/skills/vercel-icon.svg" },
+  { name: "Netlify", category: "Tools", logo: "/images/skills/netlify.png" },
   { name: "Figma", category: "Tools", logo: "/images/skills/figma.png" },
   { name: "VS Code", category: "Tools", logo: "/images/skills/vscode.png" },
+  { name: "Antigravity", category: "Tools", logo: "/images/skills/antigravity.png" },
+  { name: "PostMan", category: "Tools", logo: "/images/skills/postman.png" },
+
+  { name: "Stripe", category: "Payment", logo: "/images/skills/stripe.png" },
 ];
 
 export function getSkillsByCategory(category: SkillCategory): Skill[] {
